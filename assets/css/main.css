@@ -4003,6 +4003,10 @@ input, select, textarea {
 /* Button */
 	.styled-button {
 		text-align: center; /* Adjust as needed */
+		display: flex;
+		justify-content: center; /* Horizontally center */
+		align-items: center; /* Vertically center */
+		height: 100%; /* Optional: adjust as needed */
 	}
 
 	.styled-button button {
