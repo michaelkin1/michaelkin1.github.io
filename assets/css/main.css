@@ -4000,51 +4000,67 @@ input, select, textarea {
 	body.is-mobile.landing #footer {
 		background-color: #1d242a;
 	}
-/* Button */
-	/* Button wrapper */
-	.styled-button {
-	  margin-top: auto;      /* pushar ner knappen */
-	  display: flex;
-	  justify-content: center;
-	  align-items: center;
-	  text-align: center;
-	}
 
 
-	.styled-button button {
-		color: #fff;
-		padding: 15px 22px;
-		border-radius: 6px;
-		background: #37516e;
-		transition: all 0.2s ease;
-		border: none;
-		cursor: pointer;
-		display: flex;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-	}
+/* ================================
+   Project thumbnail link (mobile-friendly)
+   Put this at the VERY bottom of main.css
+   ================================ */
 
-	.styled-button button:active {
-		transform: scale(0.96);
-	}
+/* Make the whole thumbnail area clickable */
+#two .project-thumb {
+  position: relative;
+  display: block;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 6px; /* optional */
+}
 
-	/* Gör content till flex-kolumn så margin-top:auto funkar */
-	.spotlight .content {
-	  display: flex;
-	  flex-direction: column;
-	}
+/* Keep image uncropped (since you use 990x680 thumbnails) */
+#two .project-thumb img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
 
-	/* Samma höjd på bilden i varje spotlight */
-	.spotlight .image {
-	  height: 360px;      /* justera efter smak */
-	  overflow: hidden;
-	}
-	
-	.spotlight .image img {
-	  width: 100%;
-	  height: 100%;
-	  object-fit: cover;  /* croppar snyggt */
-	  display: block;
-	}
+/* Bottom CTA bar (always visible -> works on mobile) */
+#two .project-thumb .project-cta {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
 
+  padding: 0.75rem 1rem;
+  background: rgba(55, 81, 110, 0.85); /* your blue */
+  color: #fff;
+
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+/* Desktop polish */
+#two .project-thumb img {
+  transition: transform 0.25s ease;
+}
+
+#two .project-thumb:hover img,
+#two .project-thumb:focus-visible img {
+  transform: scale(1.02);
+}
+
+#two .project-thumb:hover .project-cta,
+#two .project-thumb:focus-visible .project-cta {
+  background: rgba(55, 81, 110, 0.95);
+}
+
+#two .project-thumb:focus-visible {
+  outline: 3px solid rgba(255, 255, 255, 0.45);
+  outline-offset: 4px;
+}
+
+/* Optional: ensure the CTA bar doesn't cover important parts too much */
+#two .project-thumb .project-cta {
+  backdrop-filter: blur(2px);
+}
